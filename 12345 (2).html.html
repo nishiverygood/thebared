@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12345 维权与举报专项指南及材料库</title>
+  <style>
+    :root {
+      --bg-slate: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --primary: #0f172a;
+      --primary-hover: #1e293b;
+      --accent-blue: #2563eb;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+      --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    body { background-color: var(--bg-slate); color: var(--text-main); line-height: 1.6; padding: 24px 16px; max-width: 1040px; margin: 0 auto; scroll-behavior: smooth; }
+
+    section { background: var(--card-bg); border-radius: 16px; padding: 28px; margin-bottom: 28px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+    section h2 { font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+
+    .back-nav { margin-bottom: 20px; }
+    .back-nav a { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--accent-blue); text-decoration: none; }
+    .back-nav a:hover { text-decoration: underline; }
+
+    .download-list { display: flex; flex-direction: column; gap: 16px; }
+    .dl-item { display: flex; justify-content: space-between; align-items: center; padding: 20px; border: 1px solid var(--border); border-radius: 10px; background: #fff; flex-wrap: wrap; gap: 14px; }
+    .dl-info { flex: 1; min-width: 260px; }
+    .dl-info h3 { font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+    .dl-info h3 .tag { font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 600; background: #e2e8f0; color: #334155; }
+    .dl-info p { font-size: 13px; color: #64748b; line-height: 1.5; }
+    .dl-actions { display: flex; gap: 10px; }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 24px; }
+    .info-card { background: #f8fafc; border: 1px solid var(--border); padding: 16px; border-radius: 8px; }
+    .info-card h3 { font-size: 15px; color: #0f172a; margin-bottom: 8px; font-weight: 700; }
+    .info-card ul { padding-left: 18px; color: var(--text-muted); font-size: 13.5px; }
+    .info-card li { margin-bottom: 6px; }
+
+    .btn { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: #ffffff; color: var(--text-main); transition: 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .btn:hover { background: #f1f5f9; }
+    .btn-primary { background: var(--primary); color: #ffffff; border-color: var(--primary); }
+    .btn-primary:hover { background: var(--primary-hover); }
+
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #0f172a; color: white; padding: 12px 24px; border-radius: 30px; font-size: 13.5px; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 1000; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3); }
+    .toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <div class="back-nav">
+    <a href="index.html">← 返回总览导航主页</a>
+  </div>
+
+  <section>
+    <h2>12345 维权与举报专项指南及材料库</h2>
+    
+    <div class="download-list" style="margin-bottom: 24px;">
+
+      <div class="dl-item">
+        <div class="dl-info">
+          <h3>规划资源局科员履职不当举报书 <span class="tag">公职人员违纪/履职</span></h3>
+          <p>实名举报黄浦区规划和自然资源局一级主任科员姚军沟通会发表不当言论、立场偏向开发商问题。</p>
+        </div>
+        <div class="dl-actions">
+          <button class="btn" onclick="copyText(docZhiYuan)">复制文本</button>
+          <a href="./1.关于一级科员履职不当.docx" class="btn btn-primary" download>下载 Word</a>
+        </div>
+      </div>
+
+      <div class="dl-item">
+        <div class="dl-info">
+          <h3>虚假宣传和降标问题清单 <span class="tag">质量与虚假宣传</span></h3>
+          <p>涵盖 T4 楼外立面、石材破损、公区地面破损、地下车库简陋等全方位事实与整改诉求。</p>
+        </div>
+        <div class="dl-actions">
+          <button class="btn" onclick="copyText(docQingDan)">复制文本</button>
+          <a href="./2.虚假宣传和降标.docx" class="btn btn-primary" download>下载 Word</a>
+        </div>
+      </div>
+
+      <div class="dl-item">
+        <div class="dl-info">
+          <h3>市监局 2 次工单投诉材料 <span class="tag">市监局投诉</span></h3>
+          <p>针对地下车库、公区降标不属于住建管辖后，转入市监局查处虚假宣传、消费欺诈的专项举报材料。</p>
+        </div>
+        <div class="dl-actions">
+          <button class="btn" onclick="copyText(docShiJian)">复制文本</button>
+          <a href="./2.1 2次提交工单到市监局.docx" class="btn btn-primary" download>下载 Word</a>
+        </div>
+      </div>
+
+      <div class="dl-item">
+        <div class="dl-info">
+          <h3>区建管委敷衍整改复核工单 <span class="tag">区建管委</span></h3>
+          <p>针对建管委“已督促整改”但现场假整改、破损石材未修复问题的复核与再督办申请。</p>
+        </div>
+        <div class="dl-actions">
+          <button class="btn" onclick="copyText(docJianGuan)">复制文本</button>
+          <a href="./2.2 2次提交工单到区建管委.docx" class="btn btn-primary" download>下载 Word</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>12345 运作与 KPI 逻辑</h3>
+        <ul>
+          <li><strong>职责界定：</strong>12345 负责问题的记录和派送。</li>
+          <li><strong>承办部门考核：</strong>按时办结率；问题解决率；<b>群众满意率</b>（回访评价）。</li>
+          <li><strong>重办触发机制：</strong>
+            <ul>
+              <li>抓住官方回访时机表示不满意。</li>
+              <li>通过线上平台发起“申请重办 / 不满意申诉”。</li>
+              <li>再次拨打热线或申请提级办理、督查介入。</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>实战注意事项</h3>
+        <ul>
+          <li><b>不建议重复提交：</b>每天重复提交相同诉求效果适得其反。</li>
+          <li><b>针对性补充证据：</b>针对部门敷衍回复，精准补充证据提出二次诉求。</li>
+          <li><b>聚焦核心痛点：</b>围绕虚假宣传、降标减配、履职不当等依法依规死磕原单。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div id="toast" class="toast">操作成功</div>
+
+  <script>
+    const docZhiYuan = `本人系融创外滩壹号院二期业主，实名举报黄浦区规划和自然资源局一级主任科员姚军履职失范，恳请核查处理。
+在10月8日项目业主官方沟通会上，姚军作为主管公职人员，本应中立协调业主与开发商纠纷。姚军未全程参会，相关关键表述是会前他与开发商交谈时被业主听到；会议正式开始后姚军便离场，仅安排基层工作人员接待。现场其发表不当言论：“16.8万的价格就号称豪宅啊，要给他们地上铺满黄金汉白玉啊”，言语戏谑嘲讽业主。
+业主高价购房，基于项目顶豪宣传承诺，现项目存在降标减配争议。姚军回避项目品质争议核心问题，发表倾向性言论，立场偏向开发商，漠视群众诉求，丧失公务中立性，损害政府公信力。
+恳请贵单位核查：
+1.核查姚军本次沟通会履职情况、不当言论问题，依规处置；
+2.核查其是否存在偏袒开发商、履职不公等情形；
+3.督促相关部门正视项目降标减配争议，推动开发商整改，保障业主合法权益。`;
+
+    const docQingDan = `融创外滩壹号院二期尚未正式交付，现发现以下问题：
+1. T4楼侧面造型与其他楼栋不符涉及虚假宣传，消费欺诈，以及风险揭示不足并且与交付材料不符。
+2. 外立面石材破损：部分楼栋外立面石材已出现破损、崩边、裂纹及划痕，请督促开发商按原设计、原材质和原工艺更换，不得以打胶、补色等方式遮盖。
+3. 公区地面、墙面破损：部分公共区域地面、墙面石材已出现破损、缺角、划痕及污染。
+4. 地下车库粗糙简陋：项目以高端住宅宣传，但地下车库墙顶地面、灯光、标识及入户区域整体效果粗糙简陋，要求开发商公开车库设计、材料及验收情况，按约整改。`;
+
+    const docShiJian = `融创外滩壹号院二期尚未正式交付，现发现以下问题：
+T4楼侧面造型与其他楼栋不符涉及虚假宣传，消费欺诈，以及风险揭示不足并且与交付材料不符，装修严重降标等问题。
+根据市住建委/黄浦建管委在工单中的官方认定：‘地下车库与宣传存在偏差、装修标准降标及效果不及预期等不属于住建质量职责，属于合同纠纷/宣传偏差’。
+现特向贵局（市监局）举报：融创外滩壹号院二期在销售时，通过虚构高端地下车库、公区效果及T4楼造型等进行虚假宣传，误导消费者高价购房。请求市监局依法对开发商的虚假宣传、消费欺诈行为立案调查，并责令其纠正。`;
+
+    const docJianGuan = `本人系融创外滩壹号院二期业主。针对此前提交的工单，黄浦区建管委于 2026 年 09 月 07 日书面回复称：“关于外立面和部分公共区域石材破损、缺角等质量相关问题，区建管委及区安质监站已督促施工单位进行整改。经施工单位反馈，目前正在整改中。”
+现业主进行现场复核，发现施工单位所谓的“正在整改”完全流于形式，存在严重假整改、敷衍整改问题，现场质量安全隐患依旧存在：
+1. 现场现状依然破损：T4楼外立面、第X层公共走道、地下车库入户大堂等处的石材破损、崩边、裂纹及划痕至今未做实质性修复，甚至部分破损处仅被简单打胶、抹粉覆盖，极其粗制滥造。
+2. 存在隐蔽掩盖隐患：施工单位未按照“按原设计、原材质、原工艺彻底更换”的标准执行，严重损害房屋质量与施工安全。`;
+
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("已成功复制文本到剪贴板！");
+      }).catch(err => {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast("已成功复制文本到剪贴板！");
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
