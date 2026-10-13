@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>业主维权与合法监督渠道总览导航</title>
+  <style>
+    :root {
+      --bg-slate: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --primary: #0f172a;
+      --primary-hover: #1e293b;
+      --accent-blue: #2563eb;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+      --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    body { background-color: var(--bg-slate); color: var(--text-main); line-height: 1.6; padding: 24px 16px; max-width: 1040px; margin: 0 auto; scroll-behavior: smooth; }
+
+    /* 通用区块 */
+    section { background: var(--card-bg); border-radius: 16px; padding: 28px; margin-bottom: 28px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+    section h2 { font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+
+    /* 渠道核心网格 (4大入口) */
+    .channel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; margin-bottom: 10px; }
+    .channel-card { background: #ffffff; border: 1px solid var(--border); border-radius: 12px; padding: 20px; transition: all 0.25s ease; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: inherit; }
+    .channel-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: #cbd5e1; }
+    .channel-card h3 { font-size: 17px; font-weight: 700; color: #0f172a; margin-bottom: 8px; }
+    .channel-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex-grow: 1; word-break: break-all; }
+    .channel-card .card-footer { display: flex; align-items: center; font-size: 13px; font-weight: 600; color: var(--accent-blue); }
+    .channel-card .card-footer span { transition: transform 0.2s; display: inline-block; }
+    .channel-card:hover .card-footer span { transform: translateX(4px); }
+
+    /* 文件下载列表 */
+    .download-list { display: flex; flex-direction: column; gap: 16px; }
+    .dl-item { display: flex; justify-content: space-between; align-items: center; padding: 20px; border: 1px solid var(--border); border-radius: 10px; background: #fff; flex-wrap: wrap; gap: 14px; }
+    .dl-info { flex: 1; min-width: 260px; }
+    .dl-info h3 { font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+    .dl-info h3 .tag { font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 600; background: #e2e8f0; color: #334155; }
+    .dl-info p { font-size: 13px; color: #64748b; line-height: 1.5; }
+    .dl-actions { display: flex; gap: 10px; }
+
+    /* 内部卡片样式 */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 16px; }
+    .info-card { background: #f8fafc; border: 1px solid var(--border); padding: 16px; border-radius: 8px; }
+    .info-card h3 { font-size: 15px; color: #0f172a; margin-bottom: 8px; font-weight: 700; }
+    .info-card ul { padding-left: 18px; color: var(--text-muted); font-size: 13.5px; }
+    .info-card li { margin-bottom: 6px; }
+
+    /* 按钮基础样式 */
+    .btn { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: #ffffff; color: var(--text-main); transition: 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .btn:hover { background: #f1f5f9; }
+    .btn-primary { background: var(--primary); color: #ffffff; border-color: var(--primary); }
+    .btn-primary:hover { background: var(--primary-hover); }
+
+    /* Toast 提示 */
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #0f172a; color: white; padding: 12px 24px; border-radius: 30px; font-size: 13.5px; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 1000; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3); }
+    .toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <!-- 导航入口 -->
+  <section>
+    <h2>导航入口</h2>
+    <div class="channel-grid">
+
+      <!-- 渠道 1: 12345 (内联锚点跳转) -->
+      <a href="#section-12345" class="channel-card">
+        <div>
+          <h3>12345 市民热线</h3>
+          <p>渠道：https://www.sh12345.gov.cn/<br>备注：不建议重复骚扰，建议在原单上就是论事</p>
+        </div>
+        <div class="card-footer">查看 12345 专项指南 <span>↓</span></div>
+      </a>
+
+      <!-- 渠道 2: 行政履职申请书 -->
+      <a href="#section-administrative" class="channel-card">
+        <div>
+          <h3>行政履职申请书</h3>
+          <p>渠道：书面投递</p>
+        </div>
+        <div class="card-footer">查看履职申请文书 <span>↓</span></div>
+      </a>
+
+      <!-- 渠道 3: 致国资委信访办 -->
+      <a href="#section-sasac" class="channel-card">
+        <div>
+          <h3>致国资委合规监督</h3>
+          <p>渠道：ysq@sasac.gov.cn</p>
+        </div>
+        <div class="card-footer">查看国资委信访信 <span>↓</span></div>
+      </a>
+
+      <!-- 渠道 4: 致中信控股股东 -->
+      <a href="#section-citic" class="channel-card">
+        <div>
+          <h3>致中信控股股东</h3>
+          <p>渠道：gongsijiwei@famc.citic; xinfangsh@famc.citic; xinfang@famc.citic</p>
+        </div>
+        <div class="card-footer">查看致股东沟通函 <span>↓</span></div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- 1. 12345 专项指南板块 (合并自原 12345 页面) -->
+  <section id="section-12345">
+    <h2>12345 维权与举报专项指南</h2>
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>12345 运作与 KPI 逻辑</h3>
+        <ul>
+          <li><strong>职责界定：</strong>12345 负责问题的记录和派送。</li>
+          <li><strong>承办部门考核：</strong>按时办结率；问题解决率；<b>群众满意率</b>（回访评价）。</li>
+          <li><strong>重办触发机制：</strong>
+            <ul>
+              <li>抓住官方回访时机表示不满意。</li>
+              <li>通过线上平台发起“申请重办 / 不满意申诉”。</li>
+              <li>再次拨打热线或申请提级办理、督查介入。</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>实战注意事项</h3>
+        <ul>
+          <li><b>不建议重复提交：</b>每天重复提交相同诉求效果适得其反。</li>
+          <li><b>针对性补充证据：</b>针对部门敷衍回复，精准补充证据提出二次诉求。</li>
+          <li><b>聚焦核心痛点：</b>围绕虚假宣传、降标减配、履职不当等依法依规死磕原单。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 行政履职申请书文书下载区 -->
+  <section id="section-administrative">
+    <h2>行政履职申请书文书库</h2>
+    <div class="download-list">
+      <div class="dl-item">
+        <div class="dl-info">
+          <h3>行政履职申请书 - 黄浦区市场监督管理局 <span class="tag">虚假宣传/广告立案</span></h3>
+          <p>针对 T4 楼帽檐缺失、异形大堂、降标减配等虚假宣传行为，依法请求市监局履行监管职责并立案调查。</p>
+        </div>
+        <div class="dl-actions">
+          <button class="btn" onclick="copyText(adminDoc1Text)">复制文本</button>
+          <button class="btn btn-primary" onclick="downloadDoc('行政履职申请书-黄浦区市场监督管理局·虚假宣传.docx', adminDoc1Text)">下载 Word</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 致国务院国资委信访办 -->
+  <section id="section-sasac">
+    <h2>致国务院国有资产监督管理委员会信访办</h2>
+    <div class="download-list">
+      <div class="dl-item">
+        <div class="dl-info">
+          <h3>关于中信体系违规采用明股实债模式、套现离场、切割监管责任的核查申请 <span class="tag">国资监管</span></h3>
+          <p>反映中信违规明股实债、剥离国有股东责任、放任项目品质失控造成国资贬值流失风险，请求国资委专项督办追责。</p>
+        </div>
+        <div class="dl-actions">
+          <button class="btn" onclick="copyText(sasacDocText)">复制文本</button>
+          <button class="btn btn-primary" onclick="downloadDoc('致国务院国资委信访办·核查申请书.docx', sasacDocText)">下载 Word</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 致中信控股股东 -->
+  <section id="section-citic">
+    <h2>致中信系项目控股股东</h2>
+    <div class="download-list">
+      <div class="dl-item">
+        <div class="dl-info">
+          <h3>致中信系项目控股股东公开沟通函 <span class="tag">股东管控</span></h3>
+          <p>督促中信系切实履行控股股东管控责任，要求优化景观方案、启动 T4 外立面铝板帽檐二次报批，指派有权负责人协商。</p>
+        </div>
+        <div class="dl-actions">
+          <button class="btn" onclick="copyText(citicDocText)">复制文本</button>
+          <button class="btn btn-primary" onclick="downloadDoc('致中信系项目控股股东沟通函.docx', citicDocText)">下载 Word</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="toast" class="toast">操作成功</div>
+
+  <script>
+    const adminDoc1Text = `行政履职申请书
+申请人：＿＿＿＿＿＿（姓名）
+身份证号：＿＿＿＿＿＿＿＿＿＿＿
+联系电话：＿＿＿＿＿＿＿＿＿＿＿
+住  址：＿＿＿＿＿＿＿＿＿＿＿
+被申请人：上海市黄浦区市场监督管理局，曹炯，党组书记、局长
+地  址：上海市黄浦区河南南路800号
+
+申请事项
+一、依法履行法定监管职责，对申请人上海12345市民服务热线诉求编号＿＿＿＿＿＿对应的开发商泛海建设控股有限公司在融创外滩壹号院二期项目销售过程中涉嫌发布虚假广告、实施虚假宣传的行为立案调查；
+二、责令开发商立即停止虚假宣传行为，并在相应范围内消除影响、公开更正；
+三、依法对开发商作出行政处罚决定；
+四、将调查处理结果在法定期限内书面告知申请人。
+
+事实与理由
+一、项目基本情况
+融创外滩壹号院二期位于上海市黄浦区董家渡路399弄（中华路518弄），共4栋楼470余户，开发商为泛海建设控股有限公司。本项目于2024年开盘，预售许可证编号为黄浦房管(2024)预字0000069号，申请人与泛海建设控股有限公司签署《上海市商品房预售合同》，约定交房日期为2026年12月31日。销售过程中，开发商长期以“顶豪”“突破以往的产品”“高端豪宅”“尊贵园林”等定位对外宣传，并将上述宣传作为项目定价和吸引购房业主购房的重要依据。
+本项目尚未正式交付，申请人已发现实际交付内容与开发商销售宣传存在多处严重不符，涉嫌构成虚假宣传、虚假广告。本人通过上海12345市民服务热线提交投诉诉求，诉求编号：＿＿＿＿＿＿。贵局迟迟未就前述投诉作出的回复。
+现依据《中华人民共和国广告法》《中华人民共和国反不正当竞争法》《中华人民共和国消费者权益保护法》等规定，向贵局申请依法履职。
+
+二、开发商主观故意隐瞒，涉嫌虚假宣传、虚假广告的具体事实
+（一）T4 楼栋外立面、大堂呈现与宣传资料存在极大差异，销售阶段及售房文件中无任何提示
+1. 开发商在广告宣传、设计方案效果图中均明确展示T4楼栋的“帽檐”造型结构，但实际施工中该结构缺失，实际外立面与宣传内容、效果图及其他楼栋呈现不一致，销售阶段及售房文件中无任何提示。然而，开发商向规划部门报备并实际施工的T4外立面方案却无帽檐，实际交付亦无帽檐。开发商明知规划报备方案无帽檐，却在销售时使用有帽檐的宣传资料误导消费者。
+2. T4 楼栋大堂设计空间局促，导致大堂内部空间异形，与其他楼栋呈现不一致，尖锐阳角极多，容易造成老人、孩童磕碰，存在严重安全隐患，并且异形大堂销售阶段及售房文件中无任何提示。
+前述重大差异未作为不利因素告知购房者，根据沪房规范〔2019〕20 号（上海市房管局）：销售方案要包含日照、噪声、公建配套等影响居住的指标，备案销售方案售楼现场醒目公示。然开发商为实现快速清盘，故意隐瞒真相，刻意掩盖了T4栋外立面与其他楼栋存在的重大差异，致使申请人误以为所购房屋外立面与其他楼栋一致，性质恶劣。
+
+（二）“高端豪宅”整体宣传与公共区域实际效果不符
+1. 开发商长期以“高端豪宅”定位对外宣传，宣传文件不惜用顶级高端住宅、沪上顶级豪宅等字样来煽动业主购买情绪，但地下车库目前效果极为简陋，几近完工状态的入户大堂、电梯厅、楼道间存在诸多问题：大门金属部件工艺粗制滥造，漆面粉化风险；地面石材颜色昏暗，碎裂频发；墙面大量使用廉价岩板，设计简陋、施工粗糙；大堂屏风结构摇晃，金属锚固失效；踢脚线、墙地面交接收口粗暴，存在大量阳角与锐角。所有电梯尺寸均按照设计规范底线性要求 1.6mx1.5m 设计，无法满足搬运大型家具及急救担架需求。
+2. 本项目宣传称采用了在 Apple 旗舰店同等的“超白玻”，但外立面玻璃整体呈现发绿、倒影变形的“哈哈镜”效果，多楼栋玻璃不同且已多次出现自爆。
+3. 开发商宣传图中展示了多处灵动水景及高规格绿化组团，实际交付时水景全部去掉，绿化严重减配。
+4. 大门及多处出入口样式、材质严重缩水，涉嫌系统性降标。
+
+三、上述宣传行为对申请人购房决策产生实质性影响
+申请人系基于开发商上述宣传内容及项目定位作出购房决策并支付购房款项，若申请人知悉上述宣传与实际严重不符，将不会以该价格购买本项目房屋。开发商上述虚假宣传、虚假广告，侵害了申请人作为消费者的知情权和公平交易权，涉嫌违反《中华人民共和国消费者权益保护法》第八条、第二十条的规定。
+
+四、法律依据与贵局职责
+根据《中华人民共和国广告法》第四条、第八条、第二十六条、第二十八条，《中华人民共和国反不正当竞争法》第九条，《中华人民共和国消费者权益保护法》第八条、第二十条及《房地产广告发布规定》第三条，开发商上述行为涉嫌构成虚假宣传与虚假广告。根据《中华人民共和国广告法》第六条、第四十九条、第五十三条及《中华人民共和国反不正当竞争法》第二十条，贵局对辖区内广告及不当竞争行为负有监督查处法定职责。若超期不履职，申请人将依法申请行政复议或提起行政诉讼。
+
+此致
+上海市黄浦区市场监督管理局
+申请人（签名）：＿＿＿＿＿＿＿＿＿＿
+2026年  月  日`;
+
+    const sasacDocText = `致国务院国有资产监督管理委员会信访办
+
+信访事项：关于中信体系违规采用明股实债模式、套现离场、切割监管责任，导致项目品质失控、国有资产面临流失风险的核查申请
+
+尊敬的国资委信访办领导：
+
+我们是融创外滩壹号院二期全体购房业主。本项目工商登记股东为中信体系国有央企主体，属于国有资本参股投资项目，依法受国资监管。
+
+现就本项目中信违规明股实债、履职失责、转嫁风险、国资面临流失核心问题，专项信访反映：
+
+一、核心违规事实
+
+1. 违规明股实债，违反央企投资禁令
+中信对外明确释放口径：本项目并非真实股权投资，实为明股实债借贷模式，早已全额收回本金及固定利息，早已实现保本套现。根据国资委监管规定，中央企业严禁以明股实债方式开展参股合作，该投资模式本身属于违规操作。
+
+2. 刻意切割国资监管责任，恶意转嫁风险
+中信套现完毕后，刻意剥离自身国有股东责任：对外宣称仅为资金出借方、纾困方，无项目管控义务；同时将项目系统性、全局性的工程降标、品质失控、合规缺失问题，强行归责于融创基层项目经理个人，以“个人履职问题”掩盖央企投后监管失职、违规投资、风控空转的系统性国资管理漏洞，典型踢皮球、规避追责。
+
+3. 监管长期缺位，直接造成国有资产贬值流失
+中信作为登记在册的国有股东，即便采用明股实债模式，仍负有国有资本存续监管、风险防控、资产保值增值法定责任。但该司套现离场后彻底放任项目失控，任由项目大规模减配、违规施工、留存安全隐患，直接导致项目估值大幅缩水、国有投资资产严重贬值，已形成实质性国有资产流失风险。
+
+二、核心诉求
+
+1. 恳请贵委核查本项目中信明股实债的违规投资行为，依规认定其投资模式不合规、违反央企投资监管要求。
+
+2. 彻查中信作为国有股东投后监管完全缺位、履职不作为、事后切割责任、转嫁风险的失职违规问题，厘清主管责任、领导责任，禁止以基层个人问题替代央企国资监管责任。
+
+3. 责令中信终止责任规避行为，实质性介入项目整改督办、风险止损、品质复位，守住国有资产保值底线，杜绝国资持续流失。
+
+4. 对央企利用明股实债违规套利、套现脱责、放任国资贬值流失的行为依规追责纠偏。
+
+本项目全部工程瑕疵、违规证据、业主联名材料详见附件。恳请贵委快速受理、专项督办、闭环核查，杜绝央企违规脱责、侵害国资与群众权益。`;
+
+    const citicDocText = `致中信系项目控股股东：
+
+我们是上海融创外滩壹号院二期全体业主。本项目属于上海保交楼纾困项目，中信系为绝对控股股东，项目对外宣传央企全流程管控、顶奢豪宅定位，业主以同片区豪宅的价格购入房产，基于对央企管控能力的信任，期待交付品质匹配当初销售定位。
+
+目前项目建设品质与宣传定位落差巨大，存在多处降标减配问题。现有景观方案效果不佳，与顶豪定位不符，我们强烈要求更换景观设计师，重新优化景观方案，提升景观品质。同时项目共4栋住宅楼，报批规划方案中外立面设计存在明显差异：3栋楼设置横向铝板帽檐，1栋楼栋无该帽檐，建成后外立面横向线条割裂、观感不协调。本项目定位顶奢豪宅，外立面整体统一性是豪宅品质重要组成部分，现状差异化设计严重破坏小区整体风貌，损害房屋价值。我们恳请股东方督促开发商评估外立面优化可行性，由开发商启动规划调整申请，为该楼栋增设横向铝板帽檐，统一4栋建筑外立面风格，按规定完成规划二次报批，实现小区外立面整体协调统一。
+
+保交楼不等于降标减配交付。恳请中信系切实履行控股股东管控责任，指派拥有决策权限负责人与业主开展正式协商，督促开发商正视上述品质问题，落实整改，兑现项目顶奢豪宅的建设承诺，保障全体业主合法财产权益。
+
+融创外滩壹号院二期全体业主`;
+
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("已成功复制文本到剪贴板！");
+      });
+    }
+
+    function downloadDoc(filename, text) {
+      const element = document.createElement('a');
+      const file = new Blob([text], {type: 'text/plain;charset=utf-8'});
+      element.href = URL.createObjectURL(file);
+      element.download = filename;
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+      showToast("已开始下载文档：" + filename);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
